@@ -1,0 +1,16 @@
+body {
+    background-color: lightsalmon;
+}
+.text-center {
+    text-align: center;
+}
+.botao-direita {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nome-clinica {
+    text-align: center;
+    margin-top: 15%;
+    font-family: 'Times New Roman', Times, serif;
+}
