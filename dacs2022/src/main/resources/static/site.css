@@ -1,5 +1,7 @@
 body {
-    background-color: lightsalmon;
+    image-rendering: auto;
+    image-orientation: initial;
+    background-image: url(https://free4kwallpapers.com/uploads/originals/2022/03/28/minimal-moonlight-wallpaper.png);
 }
 .text-center {
     text-align: center;
