@@ -30,6 +30,13 @@ public class ProcedimentoControllerAPI {
         return new ResponseEntity<List<Procedimento>>(listaProcedimentos, HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Procedimento> getById(@PathVariable("id") long id) {
+        var procedimento = service.findById(id);
+
+        return new ResponseEntity<Procedimento>(procedimento, HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Procedimento> insertConsulta(@RequestBody Procedimento procedimento) {
         if (procedimento.getId() == 0) {

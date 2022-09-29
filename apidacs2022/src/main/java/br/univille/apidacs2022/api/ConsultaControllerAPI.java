@@ -30,6 +30,13 @@ public class ConsultaControllerAPI {
         return new ResponseEntity<List<Consulta>>(listaConsultas, HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Consulta> getById(@PathVariable("id") long id) {
+        var consulta = service.findById(id);
+
+        return new ResponseEntity<Consulta>(consulta, HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Consulta> insertConsulta(@RequestBody Consulta consulta) {
         if (consulta.getId() == 0) {

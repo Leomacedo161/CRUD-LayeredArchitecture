@@ -30,8 +30,15 @@ public class MedicoControllerAPI {
         return new ResponseEntity<List<Medico>>(listaMedicos, HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Medico> getById(@PathVariable("id") long id) {
+        var medico = service.findById(id);
+
+        return new ResponseEntity<Medico>(medico, HttpStatus.OK);
+    }
+
     @PostMapping
-    public ResponseEntity<Medico> insertConsulta(@RequestBody Medico medico) {
+    public ResponseEntity<Medico> insertMedico(@RequestBody Medico medico) {
         if (medico.getId() == 0) {
             service.save(medico);
             return new ResponseEntity<Medico>(medico, HttpStatus.CREATED);

@@ -30,8 +30,15 @@ public class CidadeControllerAPI {
         return new ResponseEntity<List<Cidade>>(listaCidades, HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Cidade> getById(@PathVariable("id") long id) {
+        var cidade = service.findById(id);
+
+        return new ResponseEntity<Cidade>(cidade, HttpStatus.OK);
+    }
+
     @PostMapping
-    public ResponseEntity<Cidade> insertConsulta(@RequestBody Cidade cidade) {
+    public ResponseEntity<Cidade> insertMedico(@RequestBody Cidade cidade) {
         if (cidade.getId() == 0) {
             service.save(cidade);
             return new ResponseEntity<Cidade>(cidade, HttpStatus.CREATED);
